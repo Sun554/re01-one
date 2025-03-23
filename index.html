@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动切换图片动画网页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            background-color: #333;
+            padding: 15px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+       .slideshow-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+       .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+       .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+       .slide.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>斯奈德</h1><!-- 添加标题 -->
+    <div class="slideshow-container">
+        <div class="slide">
+            <img src="https://i.imgs.ovh/2025/03/23/yL4KH.jpeg" alt="yL4KH.jpeg" border="0">
+        </div>
+        <div class="slide">
+            <img src="https://i.imgs.ovh/2025/03/23/yLdOU.jpeg" alt="yLdOU.jpeg" border="0">
+        </div>
+        <div class="slide">
+            <img src="https://i.imgs.ovh/2025/03/23/yLlgX.jpeg" alt="yLlgX.jpeg" border="0">
+        </div>
+        <div class="slide">
+            <img src="https://i.imgs.ovh/2025/03/23/yLtoQ.jpeg" alt="yLtoQ.jpeg" border="0">
+        </div>
+        <div class="slide">
+            <img src="https://i.imgs.ovh/2025/03/23/yLKNF.jpeg" alt="yLKNF.jpeg" border="0">
+        </div>
+        <div class="slide">
+            <img src="https://i.imgs.ovh/2025/03/23/yLIUm.jpeg" alt="yLIUm.jpeg" border="0">
+        </div>
+         <div class="slide">
+             <img src="https://i.imgs.ovh/2025/03/23/yLhW9.jpeg" alt="yLhW9.jpeg" border="0">
+        </div>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        // 初始显示第一张图片
+        showSlide(currentIndex);
+
+        // 每隔 5 秒切换一次图片
+        setInterval(nextSlide, 5000);
+    </script>
+</body>
+
+</html>    
